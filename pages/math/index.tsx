@@ -109,7 +109,7 @@ export default function MathQuizzes() {
 			<div className={styles.DoneArea}>
 				{remainingQuizzesNum > 0 ? (
 					<p className={styles.NoteBar}>
-						Samuel, {remainingQuizzesNum} math questions to do!!
+						{remainingQuizzesNum} math questions to do!!
 					</p>
 				) : showAnswers ? (
 					<button
@@ -141,7 +141,7 @@ export default function MathQuizzes() {
 				{showAnswers ? (
 					<p className={styles.NoteBar}>
 						{correctNum === totalQuizzesNum
-							? 'Great job, Samuel!! All correct!!'
+							? 'Great job!! All correct!! Make a screenshot and show send to Daddy!'
 							: `You have ${correctNum} correct! Try again!`}
 					</p>
 				) : null}
