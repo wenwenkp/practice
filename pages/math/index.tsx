@@ -68,6 +68,30 @@ export default function MathQuizzes() {
 				.length
 		: 0;
 
+	if (showAnswers && correctNum === totalQuizzesNum) {
+		return (
+			<MainLayout>
+				<p className={styles.NoteBar}>
+					Great job!! All correct!! Make a screenshot and send to
+					Daddy! {new Date().toLocaleDateString()}
+				</p>
+				<button
+					className={styles.DoneBtn}
+					role='button'
+					onClick={(e) => {
+						e.preventDefault();
+						e.stopPropagation();
+						setShowAnswers(false);
+						setQuizzes(generateMathQuizzes());
+						setMyAnswerByID({});
+					}}
+				>
+					Start Again!
+				</button>
+			</MainLayout>
+		);
+	}
+
 	return (
 		<MainLayout>
 			<div className={styles.Paper}>
@@ -138,13 +162,6 @@ export default function MathQuizzes() {
 						Done and Show Answers to Daddy!!
 					</button>
 				)}
-				{showAnswers ? (
-					<p className={styles.NoteBar}>
-						{correctNum === totalQuizzesNum
-							? 'Great job!! All correct!! Make a screenshot and show send to Daddy!'
-							: `You have ${correctNum} correct! Try again!`}
-					</p>
-				) : null}
 			</div>
 		</MainLayout>
 	);
