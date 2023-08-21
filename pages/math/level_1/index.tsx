@@ -90,12 +90,12 @@ export default function MathQuizzesOne() {
 			</div>
 			<div className={styles.DoneArea}>
 				{remainingQuizzesNum > 0 ? (
-					<p className={styles.NoteBar}>
+					<p className={commonStyles.NoteBar}>
 						{remainingQuizzesNum} math questions to do.
 					</p>
 				) : showAnswers ? (
 					<button
-						className={stcommonStylesyles.DoneBtn}
+						className={commonStyles.DoneBtn}
 						role='button'
 						onClick={(e) => {
 							e.preventDefault();

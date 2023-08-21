@@ -50,7 +50,7 @@ export default function MemoryQuizzesOne() {
 		<MainLayout>
 			{Object.values(matchedByID).length === cards.length ? (
 				<>
-					<p className={styles.NoteBar}>
+					<p className={commonStyles.NoteBar}>
 						Great job!! All correct!!{' '}
 						{new Date().toLocaleDateString()}
 					</p>

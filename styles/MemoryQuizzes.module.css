@@ -42,12 +42,3 @@
 	font-size: 1.5rem;
 	font-weight: bold;
 }
-
-.NoteBar {
-	border-radius: 5px;
-	text-align: center;
-	margin: 1rem;
-	padding: 1rem;
-	background-color: #ff7300;
-	font-size: large;
-}

@@ -28,7 +28,7 @@ export default function MathQuizzesTwo() {
 	if (showAnswers && correctNum === totalQuizzesNum) {
 		return (
 			<MainLayout>
-				<p className={styles.NoteBar}>
+				<p className={commonStyles.NoteBar}>
 					Great job!! All correct!! {new Date().toLocaleDateString()}
 				</p>
 				<button
@@ -101,7 +101,7 @@ export default function MathQuizzesTwo() {
 			</div>
 			<div className={styles.DoneArea}>
 				{remainingQuizzesNum > 0 ? (
-					<p className={styles.NoteBar}>
+					<p className={commonStyles.NoteBar}>
 						{remainingQuizzesNum} math questions to do.
 					</p>
 				) : showAnswers ? (
