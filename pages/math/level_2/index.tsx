@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import MainLayout from '../../../components/layouts/MainLayout';
 import styles from '../MathQuizzes.module.css';
-import { generateMathQuizzesOne } from '../utils';
+import { generateMathQuizzesTwo } from '../utils';
 
 const totalQuizzesNum = 18;
-const maxNum = 16;
+const maxNum = 11;
 
-export default function MathQuizzesOne() {
+export default function MathQuizzesTwo() {
 	const [myAnswerByID, setMyAnswerByID] = useState({});
 	const [quizzes, setQuizzes] = useState([]);
 	const [showAnswers, setShowAnswers] = useState(false);
 
 	useEffect(() => {
-		setQuizzes(generateMathQuizzesOne(totalQuizzesNum, maxNum));
+		setQuizzes(generateMathQuizzesTwo(totalQuizzesNum, maxNum));
 	}, []);
 
 	const doneQuizzesNum = Object.values(myAnswerByID).filter(
@@ -38,7 +38,7 @@ export default function MathQuizzesOne() {
 						e.stopPropagation();
 						setShowAnswers(false);
 						setQuizzes(
-							generateMathQuizzesOne(totalQuizzesNum, maxNum)
+							generateMathQuizzesTwo(totalQuizzesNum, maxNum)
 						);
 						setMyAnswerByID({});
 					}}
@@ -52,40 +52,51 @@ export default function MathQuizzesOne() {
 	return (
 		<MainLayout>
 			<div className={styles.Paper}>
-				{quizzes?.map(({ answer, num1, num2, operator1, _id }) => {
-					const myAnswer = myAnswerByID[_id] || '';
-					return (
-						<div
-							key={_id}
-							className={styles.Card}
-							style={
-								showAnswers
-									? {
-											backgroundColor:
-												myAnswer === answer
-													? 'darkseagreen'
-													: 'lightcoral',
-									  }
-									: undefined
-							}
-						>
-							<div>
-								{num1} {operator1} {num2} =
-							</div>
-							<input
-								className={styles.Input}
-								type='number'
-								value={myAnswer}
-								onChange={(e) =>
-									setMyAnswerByID({
-										...myAnswerByID,
-										[_id]: e.target.value,
-									})
+				{quizzes?.map(
+					({
+						answer,
+						num1,
+						num2,
+						num3,
+						operator1,
+						operator2,
+						_id,
+					}) => {
+						const myAnswer = myAnswerByID[_id] || '';
+						return (
+							<div
+								key={_id}
+								className={styles.Card}
+								style={
+									showAnswers
+										? {
+												backgroundColor:
+													myAnswer === answer
+														? 'darkseagreen'
+														: 'lightcoral',
+										  }
+										: undefined
 								}
-							/>
-						</div>
-					);
-				})}
+							>
+								<div>
+									{num1} {operator1} {num2} {operator2} {num3}{' '}
+									=
+								</div>
+								<input
+									className={styles.Input}
+									type='number'
+									value={myAnswer}
+									onChange={(e) =>
+										setMyAnswerByID({
+											...myAnswerByID,
+											[_id]: e.target.value,
+										})
+									}
+								/>
+							</div>
+						);
+					}
+				)}
 			</div>
 			<div className={styles.DoneArea}>
 				{remainingQuizzesNum > 0 ? (
@@ -101,7 +112,7 @@ export default function MathQuizzesOne() {
 							e.stopPropagation();
 							setShowAnswers(false);
 							setQuizzes(
-								generateMathQuizzesOne(totalQuizzesNum, maxNum)
+								generateMathQuizzesTwo(totalQuizzesNum, maxNum)
 							);
 							setMyAnswerByID({});
 						}}

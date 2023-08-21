@@ -19,6 +19,17 @@ export default function Home() {
 						</div>
 					</Link>
 				</div>
+				<div className={styles.grid}>
+					<Link
+						href='/math/level_2'
+						className={commonStyles.NoDecorationLink}
+					>
+						<div className={commonStyles.card}>
+							<h3>Math Practice &rarr;</h3>
+							<span>Level 2</span>
+						</div>
+					</Link>
+				</div>
 			</main>
 		</MainLayout>
 	);
