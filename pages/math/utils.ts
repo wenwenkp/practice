@@ -82,6 +82,6 @@ export function generateMathQuizzesTwo(
 			i--; // Retry generating the quiz
 		}
 	}
-	console.log({ quizzes });
+
 	return quizzes;
 }
