@@ -1,54 +1,10 @@
 import { useEffect, useState } from 'react';
-import MainLayout from '../../components/layouts/MainLayout';
+import MainLayout from '../../../components/layouts/MainLayout';
 import styles from './MathQuizzes.module.css';
+import { generateMathQuizzes } from './utils';
 
 const totalQuizzesNum = 18;
 const maxNum = 16;
-
-function generateMathQuizzes() {
-	const quizzes = [];
-	const operators = ['+', '-'];
-	let uniqueId = 1;
-
-	for (let i = 0; i < totalQuizzesNum; i++) {
-		const num1 = Math.floor(Math.random() * maxNum); // Generate random integer between 0 and 30
-		const num2 = Math.floor(Math.random() * maxNum);
-		const operator =
-			operators[Math.floor(Math.random() * operators.length)];
-
-		if (operator === operators[0]) {
-			quizzes.push({
-				num1,
-				num2,
-				answer: `${num1 + num2}`,
-				type: operators[0],
-				_id: uniqueId,
-			});
-		} else {
-			if (num1 >= num2) {
-				quizzes.push({
-					num1,
-					num2,
-					answer: `${num1 - num2}`,
-					type: operators[1],
-					_id: uniqueId,
-				});
-			} else {
-				quizzes.push({
-					num1: num2,
-					num2: num1,
-					answer: `${num2 - num1}`,
-					type: operators[1],
-					_id: uniqueId,
-				});
-			}
-		}
-
-		uniqueId++;
-	}
-
-	return quizzes;
-}
 
 export default function MathQuizzes() {
 	const [myAnswerByID, setMyAnswerByID] = useState({});
@@ -56,7 +12,7 @@ export default function MathQuizzes() {
 	const [showAnswers, setShowAnswers] = useState(false);
 
 	useEffect(() => {
-		setQuizzes(generateMathQuizzes());
+		setQuizzes(generateMathQuizzes(totalQuizzesNum, maxNum));
 	}, []);
 
 	const doneQuizzesNum = Object.values(myAnswerByID).filter(
@@ -72,8 +28,7 @@ export default function MathQuizzes() {
 		return (
 			<MainLayout>
 				<p className={styles.NoteBar}>
-					Great job!! All correct!! Make a screenshot and send to
-					Daddy! {new Date().toLocaleDateString()}
+					Great job!! All correct!! {new Date().toLocaleDateString()}
 				</p>
 				<button
 					className={styles.DoneBtn}
@@ -82,11 +37,13 @@ export default function MathQuizzes() {
 						e.preventDefault();
 						e.stopPropagation();
 						setShowAnswers(false);
-						setQuizzes(generateMathQuizzes());
+						setQuizzes(
+							generateMathQuizzes(totalQuizzesNum, maxNum)
+						);
 						setMyAnswerByID({});
 					}}
 				>
-					Start Again!
+					Start Again
 				</button>
 			</MainLayout>
 		);
@@ -133,7 +90,7 @@ export default function MathQuizzes() {
 			<div className={styles.DoneArea}>
 				{remainingQuizzesNum > 0 ? (
 					<p className={styles.NoteBar}>
-						{remainingQuizzesNum} math questions to do!!
+						{remainingQuizzesNum} math questions to do.
 					</p>
 				) : showAnswers ? (
 					<button
@@ -143,11 +100,13 @@ export default function MathQuizzes() {
 							e.preventDefault();
 							e.stopPropagation();
 							setShowAnswers(false);
-							setQuizzes(generateMathQuizzes());
+							setQuizzes(
+								generateMathQuizzes(totalQuizzesNum, maxNum)
+							);
 							setMyAnswerByID({});
 						}}
 					>
-						Start Again!
+						Start Again
 					</button>
 				) : (
 					<button
@@ -159,7 +118,7 @@ export default function MathQuizzes() {
 							setShowAnswers(true);
 						}}
 					>
-						Done and Show Answers to Daddy!!
+						Done and Check Answers
 					</button>
 				)}
 			</div>

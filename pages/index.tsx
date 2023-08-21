@@ -7,12 +7,15 @@ export default function Home() {
 	return (
 		<MainLayout>
 			<main className={styles.main}>
-				<h1 className={styles.title}>Welcome, Samuel.</h1>
+				<h1 className={styles.title}>Welcome</h1>
 				<div className={styles.grid}>
-					<Link href='/math' className={commonStyles.NoDecorationLink}>
+					<Link
+						href='/math/level_1'
+						className={commonStyles.NoDecorationLink}
+					>
 						<div className={commonStyles.card}>
 							<h3>Math Practice &rarr;</h3>
-							<span>Practice your math skills!</span>
+							<span>Level 1</span>
 						</div>
 					</Link>
 				</div>
