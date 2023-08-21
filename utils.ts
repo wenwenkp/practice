@@ -85,3 +85,64 @@ export function generateMathQuizzesTwo(
 
 	return quizzes;
 }
+
+export const shuffleArray = (array) => {
+	const shuffled = [...array];
+	for (let i = shuffled.length - 1; i > 0; i--) {
+		const j = Math.floor(Math.random() * (i + 1));
+		[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+	}
+	return shuffled;
+};
+
+const sightWordsList = [
+	'the',
+	'and',
+	'you',
+	'that',
+	'was',
+	'for',
+	'are',
+	'with',
+	'his',
+	'they',
+	'this',
+	'have',
+	'from',
+	'one',
+	'had',
+	'word',
+	'but',
+	'not',
+	'what',
+	'all',
+	'were',
+	'when',
+	'your',
+	'can',
+	'said',
+	'there',
+	'use',
+	'each',
+	'which',
+	'she',
+	'how',
+	'their',
+	'will',
+	'other',
+	'about',
+	'out',
+];
+
+export const getRandomSightWords = (count: number) => {
+	const words = sightWordsList
+		.sort(() => 0.5 - Math.random())
+		.slice(0, count);
+	const wordPairs = words.concat(words);
+	const shuffledWords = shuffleArray(wordPairs);
+	const initialCards = shuffledWords.map((word, index) => ({
+		_id: `word_${index}`,
+		word,
+	}));
+	return initialCards;
+};

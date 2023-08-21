@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import MainLayout from '../../../components/layouts/MainLayout';
-import styles from '../MathQuizzes.module.css';
-import { generateMathQuizzesOne } from '../utils';
+import styles from '../../../styles/MathQuizzes.module.css';
+import commonStyles from '../../../styles/Common.module.css';
+import { generateMathQuizzesOne } from '../../../utils';
 
 const totalQuizzesNum = 18;
 const maxNum = 16;
@@ -27,11 +28,11 @@ export default function MathQuizzesOne() {
 	if (showAnswers && correctNum === totalQuizzesNum) {
 		return (
 			<MainLayout>
-				<p className={styles.NoteBar}>
+				<p className={commonStyles.NoteBar}>
 					Great job!! All correct!! {new Date().toLocaleDateString()}
 				</p>
 				<button
-					className={styles.DoneBtn}
+					className={commonStyles.DoneBtn}
 					role='button'
 					onClick={(e) => {
 						e.preventDefault();
@@ -94,7 +95,7 @@ export default function MathQuizzesOne() {
 					</p>
 				) : showAnswers ? (
 					<button
-						className={styles.DoneBtn}
+						className={stcommonStylesyles.DoneBtn}
 						role='button'
 						onClick={(e) => {
 							e.preventDefault();
@@ -110,7 +111,7 @@ export default function MathQuizzesOne() {
 					</button>
 				) : (
 					<button
-						className={styles.DoneBtn}
+						className={commonStyles.DoneBtn}
 						role='button'
 						onClick={(e) => {
 							e.preventDefault();

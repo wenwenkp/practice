@@ -6,8 +6,8 @@ import MainLayout from '../components/layouts/MainLayout';
 export default function Home() {
 	return (
 		<MainLayout>
-			<main className={styles.main}>
-				<h1 className={styles.title}>Welcome</h1>
+			<h1 className={styles.title}>Welcome</h1>
+			<main className={styles.category}>
 				<div className={styles.grid}>
 					<Link
 						href='/math/level_1'
@@ -27,6 +27,17 @@ export default function Home() {
 						<div className={commonStyles.card}>
 							<h3>Math Practice &rarr;</h3>
 							<span>Level 2</span>
+						</div>
+					</Link>
+				</div>
+				<div className={styles.grid}>
+					<Link
+						href='/memory/level_1'
+						className={commonStyles.NoDecorationLink}
+					>
+						<div className={commonStyles.card}>
+							<h3>Memory Practice &rarr;</h3>
+							<span>Level 1</span>
 						</div>
 					</Link>
 				</div>

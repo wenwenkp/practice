@@ -1,0 +1,53 @@
+.wordGrid {
+	display: grid;
+	grid-template-columns: repeat(5, auto);
+	column-gap: 3rem;
+	row-gap: 3rem;
+	padding: 1rem;
+}
+
+.wordCardCovered {
+	background-color: lightskyblue;
+	border-radius: 5px;
+	width: 110px;
+	height: 110px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.wordCardFlipped {
+	background-color: lightgoldenrodyellow;
+	border-radius: 5px;
+	width: 110px;
+	height: 110px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.wordCardMatched {
+	background-color: darkseagreen;
+	border-radius: 5px;
+	width: 110px;
+	height: 110px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.NoteBar {
+	border-radius: 5px;
+	text-align: center;
+	margin: 1rem;
+	padding: 1rem;
+	background-color: #ff7300;
+	font-size: large;
+}

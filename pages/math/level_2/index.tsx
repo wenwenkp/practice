@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import MainLayout from '../../../components/layouts/MainLayout';
-import styles from '../MathQuizzes.module.css';
-import { generateMathQuizzesTwo } from '../utils';
+import styles from '../../../styles/MathQuizzes.module.css';
+import commonStyles from '../../../styles/Common.module.css';
+import { generateMathQuizzesTwo } from '../../../utils';
 
 const totalQuizzesNum = 18;
 const maxNum = 11;
@@ -31,7 +32,7 @@ export default function MathQuizzesTwo() {
 					Great job!! All correct!! {new Date().toLocaleDateString()}
 				</p>
 				<button
-					className={styles.DoneBtn}
+					className={commonStyles.DoneBtn}
 					role='button'
 					onClick={(e) => {
 						e.preventDefault();
@@ -105,7 +106,7 @@ export default function MathQuizzesTwo() {
 					</p>
 				) : showAnswers ? (
 					<button
-						className={styles.DoneBtn}
+						className={commonStyles.DoneBtn}
 						role='button'
 						onClick={(e) => {
 							e.preventDefault();
@@ -121,7 +122,7 @@ export default function MathQuizzesTwo() {
 					</button>
 				) : (
 					<button
-						className={styles.DoneBtn}
+						className={commonStyles.DoneBtn}
 						role='button'
 						onClick={(e) => {
 							e.preventDefault();
