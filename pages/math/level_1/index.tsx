@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import MainLayout from '../../../components/layouts/MainLayout';
 import styles from './MathQuizzes.module.css';
-import { generateMathQuizzes } from './utils';
+import { generateMathQuizzes } from '../utils';
 
 const totalQuizzesNum = 18;
 const maxNum = 16;
