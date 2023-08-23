@@ -7,6 +7,7 @@ export default function Home() {
 	return (
 		<MainLayout>
 			<h1 className={styles.title}>Welcome</h1>
+			<h2>Samuel's homework:</h2>
 			<main className={styles.category}>
 				<div className={styles.grid}>
 					<Link
@@ -33,6 +34,20 @@ export default function Home() {
 				<div className={styles.grid}>
 					<Link
 						href='/memory/level_1'
+						className={commonStyles.NoDecorationLink}
+					>
+						<div className={commonStyles.card}>
+							<h3>Memory Practice &rarr;</h3>
+							<span>Level 1</span>
+						</div>
+					</Link>
+				</div>
+			</main>
+			<h2>Hannah's homework:</h2>
+			<main className={styles.category}>
+				<div className={styles.grid}>
+					<Link
+						href='/memory/level_1h'
 						className={commonStyles.NoDecorationLink}
 					>
 						<div className={commonStyles.card}>

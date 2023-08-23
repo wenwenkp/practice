@@ -15,7 +15,7 @@ export default function MemoryQuizzesOne() {
 
 	useEffect(() => {
 		// Initialize the cards with sight words and initial state
-		setCards(getRandomSightWords(sightWordNums));
+		setCards(getRandomSightWords(sightWordNums, true));
 	}, []);
 
 	const handleCardClick = (card: { _id: string; word: string }) => {
@@ -48,7 +48,7 @@ export default function MemoryQuizzesOne() {
 
 	return (
 		<MainLayout>
-			<h3>Match all the sight words</h3>
+			<h3>Match all the ABC</h3>
 			{Object.values(matchedByID).length === cards.length ? (
 				<>
 					<p className={commonStyles.NoteBar}>

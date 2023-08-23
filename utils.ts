@@ -134,8 +134,37 @@ const sightWordsList = [
 	'out',
 ];
 
-export const getRandomSightWords = (count: number) => {
-	const words = sightWordsList
+const abcs = [
+	'A',
+	'B',
+	'C',
+	'D',
+	'E',
+	'F',
+	'G',
+	'H',
+	'I',
+	'J',
+	'K',
+	'L',
+	'M',
+	'N',
+	'O',
+	'P',
+	'Q',
+	'R',
+	'S',
+	'T',
+	'U',
+	'V',
+	'W',
+	'X',
+	'Y',
+	'Z',
+];
+
+export const getRandomSightWords = (count: number, isH?: boolean) => {
+	const words = (isH ? abcs : sightWordsList)
 		.sort(() => 0.5 - Math.random())
 		.slice(0, count);
 	const wordPairs = words.concat(words);
