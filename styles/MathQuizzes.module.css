@@ -42,3 +42,10 @@
 	align-items: center;
 	justify-content: center;
 }
+
+@media only screen and (max-width: 768px) {
+	.Paper {
+		grid-template-columns: auto;
+		gap: 1rem;
+	}
+}

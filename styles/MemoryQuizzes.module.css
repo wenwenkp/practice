@@ -1,8 +1,7 @@
 .wordGrid {
 	display: grid;
-	grid-template-columns: repeat(5, auto);
-	column-gap: 3rem;
-	row-gap: 3rem;
+	grid-template-columns: repeat(4, auto);
+	gap: 3rem;
 	padding: 1rem;
 }
 
@@ -41,4 +40,15 @@
 	align-items: center;
 	font-size: 1.5rem;
 	font-weight: bold;
+}
+
+@media only screen and (max-width: 768px) {
+	.wordGrid {
+		grid-template-columns: repeat(4, auto);
+		gap: 1rem;
+	}
+	.wordCardCovered {
+		width: 70px;
+		height: 70px;
+	}
 }
