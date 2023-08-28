@@ -63,7 +63,7 @@ export default function MemoryQuizzesOne() {
 							e.stopPropagation();
 							setFlippedByID({});
 							setMatchedByID({});
-							setCards(getRandomSightWords(sightWordNums));
+							setCards(getRandomSightWords(sightWordNums, true));
 						}}
 					>
 						Start Again
