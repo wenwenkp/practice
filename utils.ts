@@ -115,6 +115,7 @@ export const getRandomSightWords = (count: number) => {
 
 export const getShuffledABC = () => {
 	const words = abcs.sort(() => 0.5 - Math.random());
+	words.length = 11;
 	const wordPairs = words.concat(words);
 	const shuffledWords = shuffleArray(wordPairs);
 	const initialCards = shuffledWords.map((word, index) => ({
