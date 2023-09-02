@@ -5,7 +5,7 @@ import commonStyles from '../../../styles/Common.module.css';
 import { generateMathQuizzesTwo } from '../../../utils';
 
 const totalQuizzesNum = 18;
-const maxNum = 11;
+const maxNum = 21;
 
 export default function MathQuizzesTwo() {
 	const [myAnswerByID, setMyAnswerByID] = useState({});

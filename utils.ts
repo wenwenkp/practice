@@ -1,3 +1,5 @@
+import { abcs, firstGradeSightWords } from './constants';
+
 export function generateMathQuizzesOne(
 	totalQuizzesNum: number,
 	maxNum: number
@@ -95,78 +97,21 @@ export const shuffleArray = (array) => {
 	return shuffled;
 };
 
-const sightWordsList = [
-	'the',
-	'and',
-	'you',
-	'that',
-	'was',
-	'for',
-	'are',
-	'with',
-	'his',
-	'they',
-	'this',
-	'have',
-	'from',
-	'one',
-	'had',
-	'word',
-	'but',
-	'not',
-	'what',
-	'all',
-	'were',
-	'when',
-	'your',
-	'can',
-	'said',
-	'there',
-	'use',
-	'each',
-	'which',
-	'she',
-	'how',
-	'their',
-	'will',
-	'other',
-	'about',
-	'out',
-];
-
-const abcs = [
-	'A',
-	'B',
-	'C',
-	'D',
-	'E',
-	'F',
-	'G',
-	'H',
-	'I',
-	'J',
-	'K',
-	'L',
-	'M',
-	'N',
-	'O',
-	'P',
-	'Q',
-	'R',
-	'S',
-	'T',
-	'U',
-	'V',
-	'W',
-	'X',
-	'Y',
-	'Z',
-];
-
-export const getRandomSightWords = (count: number, isH?: boolean) => {
-	const words = (isH ? abcs : sightWordsList)
+export const getRandomSightWords = (count: number) => {
+	const words = firstGradeSightWords
 		.sort(() => 0.5 - Math.random())
 		.slice(0, count);
+	const wordPairs = words.concat(words);
+	const shuffledWords = shuffleArray(wordPairs);
+	const initialCards = shuffledWords.map((word, index) => ({
+		_id: `word_${index}`,
+		word,
+	}));
+	return initialCards;
+};
+
+export const getShuffledABC = () => {
+	const words = abcs.sort(() => 0.5 - Math.random());
 	const wordPairs = words.concat(words);
 	const shuffledWords = shuffleArray(wordPairs);
 	const initialCards = shuffledWords.map((word, index) => ({

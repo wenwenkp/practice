@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import styles from '../../../styles/MemoryQuizzes.module.css';
 import commonStyles from '../../../styles/Common.module.css';
-import { getRandomSightWords } from '../../../utils';
+import { getShuffledABC } from '../../../utils';
 import MainLayout from '../../../components/layouts/MainLayout';
-
-const sightWordNums = 10;
 
 export default function MemoryQuizzesOne() {
 	const [cards, setCards] = useState([]);
@@ -15,7 +13,7 @@ export default function MemoryQuizzesOne() {
 
 	useEffect(() => {
 		// Initialize the cards with sight words and initial state
-		setCards(getRandomSightWords(sightWordNums, true));
+		setCards(getShuffledABC());
 	}, []);
 
 	const handleCardClick = (card: { _id: string; word: string }) => {
@@ -48,7 +46,7 @@ export default function MemoryQuizzesOne() {
 
 	return (
 		<MainLayout>
-			<h3>Match all the ABC</h3>
+			<h3>Match all the letters</h3>
 			{Object.values(matchedByID).length === cards.length ? (
 				<>
 					<p className={commonStyles.NoteBar}>
@@ -63,14 +61,14 @@ export default function MemoryQuizzesOne() {
 							e.stopPropagation();
 							setFlippedByID({});
 							setMatchedByID({});
-							setCards(getRandomSightWords(sightWordNums, true));
+							setCards(getShuffledABC());
 						}}
 					>
 						Start Again
 					</button>
 				</>
 			) : null}
-			<div className={styles.wordGrid}>
+			<div className={styles.wordGridH}>
 				{cards.map((card, index) => {
 					const isFlipped = flippedByID[card._id];
 					const isMatched = matchedByID[card._id];
@@ -84,7 +82,8 @@ export default function MemoryQuizzesOne() {
 					return (
 						<div
 							key={index}
-							className={className}
+							// className={styles.wordCardGeneralH}
+							className={`${styles.wordCardGeneralH} ${className}`}
 							onClick={() => handleCardClick(card)}
 						>
 							{isFlipped || isMatched ? card.word : ''}

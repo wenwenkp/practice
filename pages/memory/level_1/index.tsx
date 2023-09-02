@@ -4,7 +4,7 @@ import commonStyles from '../../../styles/Common.module.css';
 import { getRandomSightWords } from '../../../utils';
 import MainLayout from '../../../components/layouts/MainLayout';
 
-const sightWordNums = 10;
+const sightWordNums = 20;
 
 export default function MemoryQuizzesOne() {
 	const [cards, setCards] = useState([]);
@@ -84,7 +84,7 @@ export default function MemoryQuizzesOne() {
 					return (
 						<div
 							key={index}
-							className={className}
+							className={`${styles.wordCardGeneral} ${className}`}
 							onClick={() => handleCardClick(card)}
 						>
 							{isFlipped || isMatched ? card.word : ''}
