@@ -47,8 +47,8 @@ export function generateMathQuizzesTwo(
 	const quizzes = [];
 
 	for (let i = 0; i < totalQuizzesNum; i++) {
-		const num1 = Math.floor(Math.random() * maxNum); // Random number between 0 and 30
-		const num2 = Math.floor(Math.random() * maxNum);
+		let num1 = Math.floor(Math.random() * maxNum); // Random number between 0 and 30
+		let num2 = Math.floor(Math.random() * maxNum);
 		const num3 = Math.floor(Math.random() * maxNum);
 
 		const operators = ['+', '-'];
@@ -61,6 +61,9 @@ export function generateMathQuizzesTwo(
 		if (operator1 === '+') {
 			answer = num1 + num2;
 		} else {
+			if (num1 < num2) {
+				[num1, num2] = [num2, num1];
+			}
 			answer = num1 - num2;
 		}
 

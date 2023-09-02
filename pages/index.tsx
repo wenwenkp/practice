@@ -15,7 +15,7 @@ export default function Home() {
 						className={commonStyles.NoDecorationLink}
 					>
 						<div className={commonStyles.card}>
-							<h3>Math Practice &rarr;</h3>
+							<h3>Math</h3>
 							<span>Level 1</span>
 						</div>
 					</Link>
@@ -26,7 +26,7 @@ export default function Home() {
 						className={commonStyles.NoDecorationLink}
 					>
 						<div className={commonStyles.card}>
-							<h3>Math Practice &rarr;</h3>
+							<h3>Math</h3>
 							<span>Level 2</span>
 						</div>
 					</Link>
@@ -37,7 +37,7 @@ export default function Home() {
 						className={commonStyles.NoDecorationLink}
 					>
 						<div className={commonStyles.card}>
-							<h3>Memory Practice &rarr;</h3>
+							<h3>Memory</h3>
 							<span>Level 1</span>
 						</div>
 					</Link>
@@ -51,7 +51,7 @@ export default function Home() {
 						className={commonStyles.NoDecorationLink}
 					>
 						<div className={commonStyles.card}>
-							<h3>Memory Practice &rarr;</h3>
+							<h3>Memory</h3>
 							<span>Level 1</span>
 						</div>
 					</Link>
